@@ -28,14 +28,14 @@ class App extends Component {
       checked: false
     };
     this.setState({
-      // concat 을 사용하여 배열에 추가
+      // ...Spread operator 사용하여 배열에 추가
       todos: [...todos, newTodo],
       todo: '', // todo 초기화
     });
   }
-  handleKeyPress = (e) => {
+  handleEnter = (e) => {
     // 눌려진 키가 Enter 이면 handleCreate 호출
-    if (e.key === 'Enter') {
+    if (e.keyCode === 13) {
       this.handleCreate();
     }
   }
