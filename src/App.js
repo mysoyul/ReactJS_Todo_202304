@@ -41,6 +41,9 @@ class App extends Component {
   }
 
   render() {
+    const { todo } = this.state;
+    const { handleChange, handleCreate, handleEnter} = this;
+
     return (
       <TodoListTemplate form={<Form />}>
         <TodoItemList />
