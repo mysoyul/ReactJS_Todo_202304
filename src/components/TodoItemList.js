@@ -19,8 +19,7 @@ class TodoItemList extends Component {
 
         return (
             <div>
-                <TodoItem text="오늘의 할일1" checked={false} />
-                <TodoItem text="오늘의 할일2" checked={true} />
+                {todoList}
             </div>
         );
     }
