@@ -45,7 +45,13 @@ class App extends Component {
     const { handleChange, handleCreate, handleEnter} = this;
 
     return (
-      <TodoListTemplate form={<Form />}>
+      <TodoListTemplate form={
+      <Form 
+        todo={todo}
+        myEnter={handleEnter}
+        myChange={handleChange}
+        myCreate={handleCreate}
+      />}>
         <TodoItemList />
       </TodoListTemplate>
     );
