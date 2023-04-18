@@ -4,9 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Provider } from 'react-redux';
+//import { createStore, applyMiddleware } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
+import { toDoReducer } from './reducers';
+//const store = createStore(toDoReducer, applyMiddleware(thunk));
+const store = configureStore({
+  reducer: toDoReducer,
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(thunk)
+})
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

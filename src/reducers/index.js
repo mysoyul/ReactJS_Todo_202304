@@ -1,5 +1,6 @@
 import * as types from '../actions';
 
+//State 객체
 const initialState = {
     todos: [
         {
@@ -8,7 +9,9 @@ const initialState = {
             checked: false,
         }
     ]
-}
+};
+
+//reducer 함수
 export const toDoReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.FETCH_TODOS:
