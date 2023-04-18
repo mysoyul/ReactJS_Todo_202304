@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './TodoItem.css';
 import { connect } from 'react-redux';
-import { removeTodo } from '../actions';
+import { removeTodo, toggleTodo } from '../actions';
 class TodoItem extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.checked !== nextProps.checked;
@@ -9,14 +9,22 @@ class TodoItem extends Component {
 
     handleRemove = (id) => {
         this.props.removeTodo(id);
-    }
+    };
+
+    handleToggle = (todo) => {
+        this.props.toggleTodo(todo)
+    };
 
     render() {
-        const { id, text, checked, onToggle } = this.props;
-        const { handleRemove } = this;
+        const { id, text, checked } = this.props;
+        const { handleRemove, handleToggle } = this;
 
         return (
-            <div className="todo-item" onClick={() => onToggle(id)}>
+            <div className="todo-item" onClick={() => {
+                const todo = { id, text, checked };
+                todo.checked = !todo.checked;
+                handleToggle(todo)
+            }}>
                 <div className="remove" onClick={(e) => {
                     e.stopPropagation(); // onToggle 이 실행되지 않도록 함
                     handleRemove(id)
@@ -32,4 +40,4 @@ class TodoItem extends Component {
         );
     }
 }
-export default connect(null, { removeTodo })(TodoItem);
+export default connect(null, { removeTodo, toggleTodo })(TodoItem);
