@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const apiUrl = 'http://localhost:4500/api/todos';
+const apiUrl = process.env.REACT_APP_APIURL;
+//'http://localhost:4500/api/todos';
 
 //Action type 정의
 export const FETCH_TODOS = "FETCH_TODOS";
