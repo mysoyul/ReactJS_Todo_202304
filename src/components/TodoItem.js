@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './TodoItem.css';
 class TodoItem extends Component {
     render() {
-        const { text, checked, id, onToggle, onRemove } = this.props;
+        const { id, text, checked, onToggle, onRemove } = this.props;
         return (
             <div className="todo-item" onClick={() => onToggle(id)}>
                 <div className="remove" onClick={(e) => {
