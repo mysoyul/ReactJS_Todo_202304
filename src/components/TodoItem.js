@@ -32,4 +32,4 @@ class TodoItem extends Component {
         );
     }
 }
-export default TodoItem
+export default connect(null, { removeTodo })(TodoItem);
