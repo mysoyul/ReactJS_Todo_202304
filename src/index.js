@@ -10,6 +10,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import { toDoReducer } from './reducers';
 //const store = createStore(toDoReducer, applyMiddleware(thunk));
+
 const store = configureStore({
   reducer: toDoReducer,
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(thunk)
