@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
+import { connect } from 'react-redux';
+import { addTodo } from '../actions';
 
 class Form extends Component {
     state = {
@@ -11,19 +13,17 @@ class Form extends Component {
             todo: e.target.value // todo 의 다음 바뀔 값
         });
     };
+
     handleCreate = () => {
-        const { todo, todos } = this.state;
-        const newTodo = {
-            id: this.id++,
-            text: todo,
-            checked: false
-        };
-        this.setState({
-            // ...Spread operator 사용하여 배열에 추가
-            todos: [...todos, newTodo],
-            todo: '', // todo 초기화
-        });
+        const { todo } = this.state;
+        this.props.addTodo(
+            {
+                text: todo,
+                checked: false,
+            });
+        this.setState({ todo: '' });
     }
+    
     handleEnter = (e) => {
         // 눌려진 키가 Enter 이면 handleCreate 호출
         if (e.keyCode === 13) {
