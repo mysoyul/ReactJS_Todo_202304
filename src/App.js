@@ -5,7 +5,7 @@ import TodoListTemplate from './components/TodoListTemplate';
 
 const initialTodos = new Array(500).fill(0).map(
   (item, idx) => ({ id: idx, text: `일정 ${idx}`, checked: true })
-  );
+);
 class App extends Component {
   id = 3; // 이미 0,1,2 가 존재하므로 3으로 설정
   //상태변수를 포함하고 있는 state 객체선언
