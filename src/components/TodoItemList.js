@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
-
+import { connect } from 'react-redux'
+import { fetchAllTodos } from '../actions'
 class TodoItemList extends Component {
+    componentDidMount() {
+        this.props.fetchAllTodos();
+    }
     /*
         shouldComponentUpdate() 
         : true(todos배열에 변동이 있음)이면 렌더링 다시 하고
@@ -25,7 +29,6 @@ class TodoItemList extends Component {
                 />
             )
         );
-
         return (
             <div>
                 {todoList}
@@ -33,4 +36,7 @@ class TodoItemList extends Component {
         );
     }
 }
-export default TodoItemList;
+export default connect(
+    (state)=> ({todos: state.todos}),
+    {fetchAllTodos}
+)(TodoItemList);
