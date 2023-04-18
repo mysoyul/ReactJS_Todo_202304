@@ -1,11 +1,11 @@
 import axios from 'axios';
 
+const apiUrl = 'http://localhost:4500/api/todos';
+
 //Action type 정의
 export const FETCH_TODOS = "FETCH_TODOS";
 export const ADD_TODO = "ADD_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
-
-const apiUrl = 'http://localhost:4500/api/todos';
 
 export const removeTodo = (id) => {
     return (dispatch) => {
